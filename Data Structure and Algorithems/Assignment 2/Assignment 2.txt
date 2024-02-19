@@ -1,0 +1,49 @@
+// Queue functions
+int Head(Queue* Q) {
+    return Q->head->data;
+}
+
+void Enqueue(int e, Queue* Q) {
+    Node* temp = new Node;
+    temp->data = e;
+    temp->next = NULL;
+    if (Q->head == NULL && Q->tail == NULL) {
+        Q->head = Q->tail = temp;
+        return;
+    }
+    Q->tail->next = temp;
+    Q->tail = temp;
+}
+
+void Dequeue(Queue* Q) {
+    if (Q->head == NULL) {
+        return;
+    }
+    Node* temp = Q->head;
+    Q->head = Q->head->next;
+    if (Q->head == NULL) {
+        Q->tail = NULL;
+    }
+    delete(temp);
+}
+
+// Stack functions
+int Head(Stack* S) {
+    return S->top->data;
+}
+
+void Push(int e, Stack* S) {
+    Node* temp = new Node;
+    temp->data = e;
+    temp->next = S->top;
+    S->top = temp;
+}
+
+void Pop(Stack* S) {
+    if (S->top == NULL) {
+        return;
+    }
+    Node* temp = S->top;
+    S->top = S->top->next;
+    delete(temp);
+}

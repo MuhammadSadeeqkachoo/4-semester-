@@ -1,0 +1,18 @@
+y = [2 4 6 8 10 12 14 16 18 20];
+x = [2];
+h=conv(x,y);
+subplot(3,1,1);
+stem(x);
+title('Input x[n]');
+xlabel('index, n');
+ylabel('Value, x[n]'); 
+subplot(3,1,2);
+stem(y,'r');
+title('Output y[n]');
+xlabel('index, n');
+ylabel('Value, y[n]');
+subplot(3,1,3);
+stem(h,'r');
+title('impulse response h[n]');
+xlabel('index, n');
+ylabel('Value, h[n]');
